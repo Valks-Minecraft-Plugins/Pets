@@ -1,0 +1,5 @@
+name: Pets
+main: com.pets.Pets
+author: valkyrienyanko
+version: 1.0
+api-version: 1.13
