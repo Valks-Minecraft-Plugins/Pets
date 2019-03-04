@@ -17,7 +17,7 @@ import org.bukkit.inventory.Inventory;
 
 import com.pets.Pets;
 import com.pets.config.PlayerFiles;
-import com.valkutils.modules.ItemModule;
+import com.valkcore.modules.ItemModule;
 
 public class PetInv implements Listener {
 	@EventHandler
@@ -43,18 +43,20 @@ public class PetInv implements Listener {
 			PlayerFiles cm = PlayerFiles.getConfig(p);
 			FileConfiguration config = cm.getConfig();
 			
-			switch (e.getSlot()) {
-			case 0:
-				cat.setCatType(Type.BLACK_CAT);
-				break;
-			case 1:
-				cat.setCatType(Type.RED_CAT);
-				break;
-			case 2:
-				cat.setCatType(Type.SIAMESE_CAT);
-				break;
-			default:
-				break;
+			if (cat != null) {
+				switch (e.getSlot()) {
+				case 0:
+					cat.setCatType(Type.BLACK_CAT);
+					break;
+				case 1:
+					cat.setCatType(Type.RED_CAT);
+					break;
+				case 2:
+					cat.setCatType(Type.SIAMESE_CAT);
+					break;
+				default:
+					break;
+				}
 			}
 			
 			config.set("cat.type", cat.getCatType().name());
